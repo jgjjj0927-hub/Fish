@@ -1,0 +1,291 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0a0a0f;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.noise {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo .badge {
+    background: #00ffc8;
+    color: #000;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: super;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active { color: #00ffc8; }
+
+nav .tg-btn {
+    background: rgba(0, 255, 200, 0.1);
+    border: 1px solid #00ffc8;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: #00ffc8;
+}
+
+nav .tg-btn:hover { background: #00ffc8; color: #000; }
+
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 255, 200, 0.05) 0%, transparent 60%);
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.hero h1 .accent {
+    color: #00ffc8;
+    text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+}
+
+.subtitle {
+    color: #888;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.stat { text-align: center; }
+
+.stat span {
+    font-size: 32px;
+    font-weight: 700;
+    color: #00ffc8;
+}
+
+.stat p { color: #666; font-size: 14px; margin-top: 4px; }
+
+.games {
+    padding: 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.games h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffc8, transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    border-color: rgba(0, 255, 200, 0.3);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.game-card:hover::before { opacity: 1; }
+
+.game-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    background-color: #222;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-card h3 { font-size: 20px; margin-bottom: 4px; }
+
+.game-desc { color: #666; font-size: 13px; margin-bottom: 20px; }
+
+.download-btn {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 255, 200, 0.05);
+    border: 1px solid rgba(0, 255, 200, 0.3);
+    color: #00ffc8;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: #00ffc8;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #444;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.disclaimer { margin-top: 8px; color: #222; }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal.active { display: flex; opacity: 1; }
+
+.modal-content {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(20px);
+    transition: 0.3s;
+}
+
+.modal.active .modal-content { transform: translateY(0); }
+
+.close {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close:hover { color: #fff; }
+
+.modal-header h3 { font-size: 24px; margin-bottom: 8px; }
+
+.modal-sub {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.auth-btn.google .icon { color: #EA4335; font-weight: 800; font-size: 18px; }
+.auth-btn.apple .icon { font-size: 20px; }
+
+.modal-footer { margin-top: 20px; color: #555; font-size: 12px; }
