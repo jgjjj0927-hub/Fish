@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успех — Cheats</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f; color: #fff;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; text-align: center;
+        }
+        .success-box { padding: 40px; max-width: 400px; }
+        .check {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: rgba(0, 255, 200, 0.1);
+            border: 2px solid #00ffc8;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px; font-size: 40px; color: #00ffc8;
+        }
+        h1 { font-size: 28px; margin-bottom: 12px; }
+        p { color: #888; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+        .loader {
+            width: 40px; height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px; margin: 0 auto; overflow: hidden;
+        }
+        .loader::after {
+            content: ''; display: block; height: 100%;
+            width: 40%; background: #00ffc8;
+            animation: load 1.5s infinite ease-in-out;
+        }
+        @keyframes load {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(350%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-box">
+        <div class="check">✓</div>
+        <h1>Спасибо за регистрацию!</h1>
+        <p>Файл начнёт скачиваться через несколько секунд. Не закрывайте страницу.</p>
+        <div class="loader"></div>
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 4000);
+    </script>
+</body>
+</html>
